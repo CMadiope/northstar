@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import { FaShippingFast, FaFingerprint } from "react-icons/fa";
 import { HiSupport } from "react-icons/hi";
 import { GiReturnArrow } from "react-icons/gi";
+import TopSellers from "./TopSellers";
 
 const Homepage = () => {
   return (
@@ -67,6 +68,33 @@ const Homepage = () => {
             </div>
           </div>
         </div>
+        <div className='flex flex-col md:flex-row py-12 items-center gap-12 px-16'>
+          <div className='bg-black text-white text-center py-12 px-12'>
+            <h2 className='uppercase text-3xl font-light'>Peace of mind</h2>
+            <p className='text-sm py-4'>
+              A one-step platform for all your fashion needs, hassle-free. Buy
+              with a peace of mind
+            </p>
+            <button className='uppercase text-[#024E82] bg-white py-2 px-6 my-4'>
+              Buy now
+            </button>
+          </div>
+          <div className='bg-black text-white text-center py-12 px-16'>
+            <h2 className='uppercase text-3xl font-light'>Buy 2 get 1 free</h2>
+            <p className='text-sm py-4'>
+              End of season sale. Buy any 2 items of your choice and get 1 free
+            </p>
+            <button className='uppercase text-[#024E82] bg-white py-2 px-6 my-4'>
+              Learn more
+            </button>
+          </div>
+        </div>
+        <TopSellers />
+        <dix className='flex justify-center py-8'>
+          <button className='uppercase py-4 px-8 bg-[#024E82] text-white'>
+            Shop now
+          </button>
+        </dix>
       </div>
     </div>
   );

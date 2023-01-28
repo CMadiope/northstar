@@ -6,6 +6,10 @@ import pic5 from "/public/plainblue.png";
 import pic6 from "/public/darkblue.png";
 import pic7 from "/public/outcast.png";
 import pic8 from "/public/plainpolo.png";
+import top1 from "/public/topsellers/top1.png";
+import top2 from "/public/topsellers/top2.png";
+import top3 from "/public/topsellers/top3.png";
+import top4 from "/public/topsellers/top4.png";
 
 export const product = [
   {
@@ -55,5 +59,32 @@ export const product = [
     cover: pic8,
     title: "Plain polo shirt",
     price: 59.0,
+  },
+];
+
+export const topSellers = [
+  {
+    id: 1,
+    cover: top1,
+    title: "Gray polo shirt",
+    price: 40.0,
+  },
+  {
+    id: 2,
+    cover: top2,
+    title: "Red shirt",
+    price: 40.0,
+  },
+  {
+    id: 3,
+    cover: top3,
+    title: "Polo white shirt",
+    price: 40.0,
+  },
+  {
+    id: 4,
+    cover: top4,
+    title: "Pink Casual shirt",
+    price: 40.0,
   },
 ];
