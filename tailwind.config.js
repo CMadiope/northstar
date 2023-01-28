@@ -11,6 +11,9 @@ module.exports = {
         lato: ["Lato", "sans-serif"],
         arimo: ["Arimo", "sans-serif"],
       },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(15rem, 1fr))",
+      },
     },
   },
   plugins: [],
