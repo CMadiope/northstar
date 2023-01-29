@@ -1,13 +1,13 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React from "react";
+import Navbar from "./Navbar";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <div className='w-full min-h-[50px] absolute z-10'>
-      <Navbar/> 
+      <Navbar />
       <main>{children}</main>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

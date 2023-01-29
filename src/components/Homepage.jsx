@@ -6,7 +6,7 @@ import { FaShippingFast, FaFingerprint } from "react-icons/fa";
 import { HiSupport } from "react-icons/hi";
 import { GiReturnArrow } from "react-icons/gi";
 import TopSellers from "./TopSellers";
-
+import Footer from "./Footer";
 const Homepage = () => {
   return (
     <div className=' w-full h-[100vh]'>
@@ -90,12 +90,13 @@ const Homepage = () => {
           </div>
         </div>
         <TopSellers />
-        <dix className='flex justify-center py-8'>
+        <div className='flex justify-center py-8'>
           <button className='uppercase py-4 px-8 bg-[#024E82] text-white'>
             Shop now
           </button>
-        </dix>
+        </div>
       </div>
+      <Footer/>
     </div>
   );
 };
