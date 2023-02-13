@@ -7,6 +7,7 @@ import { HiSupport } from "react-icons/hi";
 import { GiReturnArrow } from "react-icons/gi";
 import TopSellers from "./TopSellers";
 import Footer from "./Footer";
+
 const Homepage = () => {
   return (
     <div className=' w-full h-[100vh]'>
@@ -96,7 +97,7 @@ const Homepage = () => {
           </button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
