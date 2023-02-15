@@ -8,9 +8,18 @@ import {
 import { useRouter } from "next/router";
 import { FaBars } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const quantity = useSelector((state) => state.cart.totalQuantity)
+  const cartItems = useSelector((state) => state.cart.cartItems)
+
+  let total = 0
+  
+  cartItems.forEach((item) => {
+    total += item.totalPrice
+  })
 
   const handleNav = () => {
     setNav(!nav);
@@ -18,11 +27,9 @@ const Navbar = () => {
 
   const router = useRouter();
   return (
-    <nav className='relative flex justify-between items-center py-10  z-10 px-8' >
+    <nav className='relative flex justify-between items-center py-10  z-10 px-8'>
       <Link href='/' className='max-sm:absolute max-sm:left-[40%]'>
-        <h1 className='text-2xl font-bold font-lato xl:text-3xl '>
-          NorthStar
-        </h1>
+        <h1 className='text-2xl font-bold font-lato xl:text-3xl '>NorthStar</h1>
       </Link>
       <ul className='hidden sm:flex items-center gap-10  md:text-lg lg:text-2xl'>
         <Link
@@ -51,7 +58,10 @@ const Navbar = () => {
         <div className='flex gap-4 cursor-pointer text-lg lg:text-2xl max-sm:absolute max-sm:right-5'>
           <AiOutlineSearch className='' />
           <Link href='/cart'>
+          <div className=" relative">
             <AiOutlineShoppingCart />
+            <span className="bg-red-600 text-white text-xs w-4 h-4 rounded-full absolute -top-2 -right-2 flex justify-center">{quantity || 0}</span>
+          </div>
           </Link>
         </div>
       </div>
