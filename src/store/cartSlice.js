@@ -9,8 +9,11 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, action) {
-      const newItem = action.payload;
+    clearCart: (state) => {
+      state.cartItems = [];
+    },
+    addToCart(state, { payload }) {
+      const newItem = payload;
 
       const duplicateItem = state.cartItems.find(
         (item) => item.id === newItem.id
@@ -19,6 +22,7 @@ const cartSlice = createSlice({
       if (duplicateItem) {
         duplicateItem.quantity++;
         duplicateItem.totalPrice += newItem.price;
+        state.totalQuantity++
       } else {
         state.cartItems.push({
           id: newItem.id,
@@ -31,18 +35,7 @@ const cartSlice = createSlice({
         state.totalQuantity++;
       }
     },
-    increaseQuantity: (state, action) => {
-      const item = state.cartItems.find((item) => item.id === action.payload)
-      item.quantity
-    },
-    decreaseQuantity: (state, action) => {
-      const item = state.cartItems.find((item) => item.id === action.payload)
-      if(item.quantity === 1) {
-        item.quantity = 1
-      } else {
-        item.quantity--
-      }
-    },
+  
     removeFromCart(state, action) {
       const id = action.payload;
       const duplicatedItem = state.cartItems.find((item) => item.id === id);
@@ -52,10 +45,12 @@ const cartSlice = createSlice({
       } else {
         duplicatedItem.quantity--;
         duplicatedItem.totalPrice -= duplicatedItem.price;
+        state.totalQuantity--
       }
     },
   },
 });
 
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart} =
+  cartSlice.actions;
 export default cartSlice.reducer;

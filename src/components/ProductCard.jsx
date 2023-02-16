@@ -36,7 +36,7 @@ const ProductCard = () => {
  
 
   return (
-    <div className='grid grid-cols-fluid gap-16 px-6 py-12'>
+    <div className='grid grid-cols-fluid gap-16 px-6 py-12' id="product">
       {products?.map((item, index) => (
         <Link
           href={`/products/[id]`}

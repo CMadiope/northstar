@@ -1,15 +1,20 @@
 import Image from "next/image";
 import React from "react";
-import {TiDelete} from 'react-icons/ti'
+import { TiDelete } from "react-icons/ti";
 import { removeFromCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const CartItem = ({ id, price, title, quantity, totalPrice, image }) => {
-
-  const dispatch = useDispatch()
+const CartItem = ({ id, price, title, quantity, totalPrice, image,  }) => {
+  const dispatch = useDispatch();
+  const showDeleteMessage = () => {
+    toast.warning("Product has been removed from your cart!");
+    position: toast.POSITION.TOP_CENTER;
+  };
 
   return (
-    <div className="flex flex-col gap-4 ">
+    <div className='flex flex-col gap-4 '>
       <div className='flex  border-b-2'>
         <div className='md:w-1/2 p-8'>
           <Image
@@ -29,13 +34,16 @@ const CartItem = ({ id, price, title, quantity, totalPrice, image }) => {
             Delivery Free | Free Exchange or return within 30 days
           </p>
           <p className='text-right font-extrabold text-black/70 text-lg'>
-            ${totalPrice}
+            ${totalPrice.toFixed(2)}
           </p>
-          <div className="group">
-            <div className='absolute top-2 right-6 cursor-pointer ' onClick={() =>{
-              dispatch(removeFromCart(id))
-            }}>
-              <TiDelete size={25} />
+          <div className='group'>
+            <div
+              className='absolute top-2 right-6 cursor-pointer '
+              onClick={() => {
+                dispatch(removeFromCart(id));
+              }}
+            >
+              <TiDelete size={25} onClick={showDeleteMessage}/>
             </div>
             <p className='bg-black/30 text-white/70 rounded-md p-2 absolute -top-8 right-2 hidden group-hover:flex'>
               Remove from cart
@@ -43,8 +51,6 @@ const CartItem = ({ id, price, title, quantity, totalPrice, image }) => {
           </div>
         </div>
       </div>
-
-    
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { HiSupport } from "react-icons/hi";
 import { GiReturnArrow } from "react-icons/gi";
 import TopSellers from "./TopSellers";
 import Footer from "./Footer";
+import Link from "next/link";
 
 const Homepage = () => {
   return (
@@ -92,9 +93,12 @@ const Homepage = () => {
         </div>
         <TopSellers />
         <div className='flex justify-center py-8'>
-          <button className='uppercase py-4 px-8 bg-[#024E82] text-white'>
+        <Link href='#product'>
+
+          <button className='uppercase py-4 px-8 bg-[#024E82] text-white' >
             Shop now
           </button>
+        </Link>
         </div>
       </div>
       <Footer />

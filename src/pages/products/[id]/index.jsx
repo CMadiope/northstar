@@ -3,6 +3,8 @@ import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import { addToCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const getStaticProps = async (context) => {
   const res = await fetch(
@@ -29,6 +31,11 @@ export const getStaticPaths = async () => {
 
 const Product = ({ data }) => {
   const dispatch = useDispatch();
+
+  const showAddMessage = () => {
+    toast.success("Product has been added to your cart!");
+    position: toast.POSITION.TOP_RIGHT;
+  };
 
   const { id, image, price, title } = data;
   return (
@@ -62,13 +69,17 @@ const Product = ({ data }) => {
             <option>M</option>
             <option>L</option>
           </select>
+
           <div
             className='py-6'
-            onClick={() => dispatch(addToCart({ id, image, price, title }))}
+            onClick={() =>
+              dispatch(addToCart({ id, image, price, title })) 
+            }
           >
-            <button className='uppercase py-3 px-8 bg-[#024E82] text-white/90 text-sm hover:scale-110'>
+            <button className='uppercase py-3 px-8 bg-[#024E82] text-white/90 text-sm hover:scale-110' onClick={showAddMessage}>
               add to cart
             </button>
+            <ToastContainer />
           </div>
         </div>
       </div>
